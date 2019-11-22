@@ -31,12 +31,11 @@ public class ScrabbleController {
         errorMsgField.setText(scrabbleModel.getErrorMsg());
 
         // Highlight the input field if the word is valid/not valid
-        if(scrabbleModel.getErrorMsg() == ""){
+        if(scrabbleModel.getErrorMsg().equals("")){
             inputFiled.setStyle("-fx-border-color: green");
         } else {
             inputFiled.setStyle("-fx-border-color: red");
         }
-
         // Display points
         scoreField.setText(String.valueOf(scrabbleModel.getTotalPoints()));
 
