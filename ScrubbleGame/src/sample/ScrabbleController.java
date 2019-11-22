@@ -14,8 +14,33 @@ public class ScrabbleController {
 
     @FXML
     private void submit(ActionEvent event){
+
         String typedWord = inputFiled.getText();
         ScrabbleModel scrabbleModel = new ScrabbleModel(typedWord);
+
+        // Error message disappears when error is corrected
+        errorMsgField.setText("");
+
+        scrabbleModel.setInputWord(typedWord);
+        historyMsgField.setText(scrabbleModel.formattedArrayList(scrabbleModel.getAllAcceptedWords()));
+
+        // Break long words
+        errorMsgField.setWrapText(true);
+
+        // Display error messages
+        errorMsgField.setText(scrabbleModel.getErrorMsg());
+
+        // Highlight the input field if the word is valid/not valid
+        if(scrabbleModel.getErrorMsg() == ""){
+            inputFiled.setStyle("-fx-border-color: green");
+        } else {
+            inputFiled.setStyle("-fx-border-color: red");
+        }
+
+        // Display points
+        scoreField.setText(String.valueOf(scrabbleModel.getTotalPoints()));
+
         System.out.println("Typed " + typedWord);
+
     }
 }

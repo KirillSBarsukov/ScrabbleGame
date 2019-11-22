@@ -1,15 +1,13 @@
 package sample;
 
 
-
-import javafx.util.Pair;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class ScrabbleModel {
+
     private String inputWord;
+    private String errorMsg = "";
+    private static int totalPoints = 0;
     private static ArrayList<String> allAcceptedWords = new ArrayList<String>();
 
     static HashMap<Character, Integer> bag = new HashMap<Character, Integer>()
@@ -77,59 +75,72 @@ public class ScrabbleModel {
     };
 
     public ScrabbleModel(String inputWord) {
-        this.inputWord = inputWord;
-
+        this.inputWord = inputWord.toLowerCase();
         process();
     }
 
-    public String getInputWord() {
-        return inputWord;
-    }
+    public String getInputWord() { return inputWord; }
 
     public void setInputWord(String inputWord) {
-        this.inputWord = inputWord;
+            this.inputWord = inputWord;
     }
 
-    public ArrayList<String> getAllAcceptedWords() {
-        return allAcceptedWords;
+    public int getTotalPoints() { return totalPoints; }
+
+    public void setTotalPoints(int totalPoints) {
+        this.totalPoints += totalPoints;
     }
 
-    public int calculateScore(String inputWord){
-        int wordScore = 0;
+    public String getErrorMsg() { return errorMsg; }
+    public void setErrorMsg(String errorMsg) { this.errorMsg = errorMsg; }
+    public ArrayList<String> getAllAcceptedWords() { return allAcceptedWords; }
+
+    public int getCalculatedScore(String inputWord){
+        int calculatedScore = 0;
         for (char ch : inputWord.toCharArray()){
             for (Character key : bag.keySet()) {
                 if(key == ch){
-                    wordScore = wordScore + points.get(key);
+                    calculatedScore = calculatedScore + points.get(key);
                 }
             }
         }
-
-        return wordScore;
+        return calculatedScore;
     }
 
-    public void setAllAcceptedWords(String inputWord) {
+    public boolean setAllAcceptedWords(String inputWord) {
 
         for (char ch : inputWord.toCharArray()){
             for (Character key : bag.keySet()) {
-                if(key == ch && bag.get(key) > 0){
-                    bag.put(key, bag.get(key) - 1);
-                } else {
-                    System.out.println("You have reached the limit. Use another one");
+                if(bag.get(ch) < 0){
+                    setErrorMsg("Word contains letter " + ch + " that is no longer available “in bag” ");
+                    return false;
+                }
 
+                if(key == ch){
+                    bag.put(key, bag.get(key) - 1);
                 }
             }
-        }
-        System.out.println(calculateScore(inputWord));
-        this.allAcceptedWords.add(inputWord);
 
+        }
+        System.out.println(getCalculatedScore(inputWord));
+        return this.allAcceptedWords.add(inputWord);
 
     }
 
     public boolean validateHandledWord(String inputWord){
 
+        if(!inputWord.matches("[a-zA-Z]+")){
+            setErrorMsg("Only words are allowed");
+            return false;
+        }
         int vowelCount = 0;
         // Check if the word is short
-        if(inputWord.length() <= 1 || inputWord.length() > 8){
+        if(inputWord.length() <= 1){
+            setErrorMsg("Word is too short");
+            return false;
+        }
+        if(inputWord.length() > 8){
+            setErrorMsg("Word is too long");
             return false;
         }
 
@@ -146,26 +157,36 @@ public class ScrabbleModel {
             }
 
         }
+
         // Word does not contain a vowel
         if(vowelCount == 0){
+            setErrorMsg("Word does not include vowel");
             return false;
         }
 
-
-        // Check if the user already passed the word
+        // Check if the user already used the word
         if(allAcceptedWords.contains(inputWord)){
+            setErrorMsg("You already used that word");
             return false;
         }
+        return setAllAcceptedWords(inputWord);
+    }
 
-       setAllAcceptedWords(inputWord);
-        return true;
+    public String formattedArrayList(ArrayList allAcceptedWords){
+        String formattedString = allAcceptedWords.toString()
+                .replace("[", "")  //remove the right bracket
+                .replace("]", "")  //remove the left bracket
+                .trim();
+        return formattedString;
     }
 
     public void process(){
         System.out.println("Bag before " + bag.entrySet());
-        System.out.println("Processed");
-        System.out.println(validateHandledWord(inputWord));
-        System.out.println(allAcceptedWords.toString());
+        if(validateHandledWord(inputWord)){
+            setInputWord(inputWord);
+            setTotalPoints(getCalculatedScore(inputWord));
+        }
+        System.out.println(getAllAcceptedWords());
         System.out.println("Bag after " + bag.entrySet());
     }
 

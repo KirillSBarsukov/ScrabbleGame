@@ -9,14 +9,17 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ScrabbleController">
    <children>
-      <Label layoutX="13.0" layoutY="13.0" text="ScrabbleGame" />
+      <Label layoutX="13.0" layoutY="13.0" text="Scrabble points Generator" />
       <Label layoutX="137.0" layoutY="31.0" text="TOTAL POINTS">
          <font>
             <Font name="System Italic" size="20.0" />
          </font>
       </Label>
       <Button layoutX="496.0" layoutY="424.0" mnemonicParsing="false" onAction="#submit" prefHeight="81.0" prefWidth="141.0" text="SUBMIT WORD" />
-      <TextField fx:id="scoreField" editable="false" layoutX="565.0" layoutY="21.0" prefHeight="46.0" prefWidth="74.0" />
+      <TextField fx:id="scoreField" editable="false" layoutX="565.0" layoutY="21.0" prefHeight="46.0" prefWidth="74.0">
+         <font>
+            <Font size="26.0" />
+         </font></TextField>
       <TextField fx:id="inputFiled" layoutX="140.0" layoutY="81.0" prefHeight="27.0" prefWidth="498.0" promptText="Type your word here" />
       <TextArea fx:id="historyMsgField" editable="false" layoutX="140.0" layoutY="424.0" prefHeight="81.0" prefWidth="336.0" promptText="History" />
       <Label alignment="CENTER" layoutX="225.0" layoutY="126.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="A" textAlignment="CENTER">
