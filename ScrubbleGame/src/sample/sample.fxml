@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="519.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ScrabbleController">
+   <children>
+      <Label layoutX="13.0" layoutY="13.0" text="ScrabbleGame" />
+      <Label layoutX="137.0" layoutY="31.0" text="TOTAL POINTS">
+         <font>
+            <Font name="System Italic" size="20.0" />
+         </font>
+      </Label>
+      <Button layoutX="496.0" layoutY="424.0" mnemonicParsing="false" onAction="#submit" prefHeight="81.0" prefWidth="141.0" text="SUBMIT WORD" />
+      <TextField fx:id="scoreField" editable="false" layoutX="565.0" layoutY="21.0" prefHeight="46.0" prefWidth="74.0" />
+      <TextField fx:id="inputFiled" layoutX="140.0" layoutY="81.0" prefHeight="27.0" prefWidth="498.0" promptText="Type your word here" />
+      <TextArea fx:id="historyMsgField" editable="false" layoutX="140.0" layoutY="424.0" prefHeight="81.0" prefWidth="336.0" promptText="History" />
+      <Label alignment="CENTER" layoutX="225.0" layoutY="126.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="A" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="289.0" layoutY="126.0" text="1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="308.0" layoutY="126.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="B" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="369.0" layoutY="126.0" style="-fx-border-radius: 10px;" text="3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="395.0" layoutY="126.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="C" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="455.0" layoutY="126.0" style="-fx-border-radius: 10px;" text="3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="480.0" layoutY="126.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="D" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="540.0" layoutY="126.0" style="-fx-border-radius: 10px;" text="2">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="226.0" layoutY="181.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="F" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="287.0" layoutY="181.0" style="-fx-border-radius: 10px;" text="4">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="309.0" layoutY="181.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="G" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="368.0" layoutY="181.0" style="-fx-border-radius: 10px;" text="2">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="396.0" layoutY="181.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="H" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="455.0" layoutY="181.0" style="-fx-border-radius: 10px;" text="4">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="481.0" layoutY="181.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="I" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="545.0" layoutY="181.0" style="-fx-border-radius: 10px;" text="1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="565.0" layoutY="181.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="J" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="624.0" layoutY="181.0" style="-fx-border-radius: 10px;" text="8">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="226.0" layoutY="236.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="L" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="290.0" layoutY="236.0" style="-fx-border-radius: 10px;" text="1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="309.0" layoutY="236.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="M" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="368.0" layoutY="236.0" style="-fx-border-radius: 10px;" text="3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="396.0" layoutY="236.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="N" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="460.0" layoutY="236.0" style="-fx-border-radius: 10px;" text="1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="481.0" layoutY="236.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="O" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="545.0" layoutY="236.0" style="-fx-border-radius: 10px;" text="1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="565.0" layoutY="236.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="P" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="624.0" layoutY="236.0" style="-fx-border-radius: 10px;" text="3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="227.0" layoutY="294.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="R" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="291.0" layoutY="294.0" style="-fx-border-radius: 10px;" text="1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="310.0" layoutY="294.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="S" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="374.0" layoutY="294.0" style="-fx-border-radius: 10px;" text="1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="397.0" layoutY="294.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="T" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="461.0" layoutY="294.0" style="-fx-border-radius: 10px;" text="1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="482.0" layoutY="294.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="U" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="546.0" layoutY="294.0" style="-fx-border-radius: 10px;" text="1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="566.0" layoutY="294.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="V" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="624.0" layoutY="294.0" style="-fx-border-radius: 10px;" text="4">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="226.0" layoutY="348.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="W" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="286.0" layoutY="348.0" style="-fx-border-radius: 10px;" text="4">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="309.0" layoutY="348.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="X" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="368.0" layoutY="348.0" style="-fx-border-radius: 10px;" text="8">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="396.0" layoutY="348.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="Y" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="455.0" layoutY="348.0" style="-fx-border-radius: 10px;" text="4">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="481.0" layoutY="348.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="Z" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="531.0" layoutY="348.0" style="-fx-border-radius: 10px;" text="10">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="140.0" layoutY="181.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="E" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="204.0" layoutY="181.0" style="-fx-border-radius: 10px;" text="1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="140.0" layoutY="236.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="K" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="199.0" layoutY="236.0" style="-fx-border-radius: 10px;" text="5">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="140.0" layoutY="294.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="Q" textAlignment="CENTER">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+      <Label layoutX="194.0" layoutY="294.0" style="-fx-border-radius: 10px;" text="10">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="errorMsgField" editable="false" layoutX="13.0" layoutY="81.0" prefHeight="424.0" prefWidth="98.0" promptText="Messages" />
+   </children>
+</Pane>
