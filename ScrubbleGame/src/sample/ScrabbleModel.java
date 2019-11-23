@@ -1,14 +1,14 @@
 package sample;
 
-
 import java.util.*;
 
 public class ScrabbleModel {
 
     private String inputWord;
     private String errorMsg = "";
+    private boolean gameOver = false;
     private static int totalPoints = 0;
-    private static ArrayList<String> allAcceptedWords = new ArrayList<String>();
+    private static ArrayList<String> allAcceptedWords = new ArrayList<>();
 
     static HashMap<Character, Integer> bag = new HashMap<Character, Integer>()
     {
@@ -76,7 +76,8 @@ public class ScrabbleModel {
 
     public ScrabbleModel(String inputWord) {
         this.inputWord = inputWord.toLowerCase();
-        process();
+        if(!isGameOver())
+            process();
     }
 
     public String getInputWord() { return inputWord; }
@@ -93,12 +94,21 @@ public class ScrabbleModel {
 
     public String getErrorMsg() { return errorMsg; }
     public void setErrorMsg(String errorMsg) { this.errorMsg = errorMsg; }
+
+    public boolean isGameOver() {
+        return gameOver;
+    }
+
+    public void setGameOver(boolean gameOver) {
+        this.gameOver = gameOver;
+    }
+
     public ArrayList<String> getAllAcceptedWords() { return allAcceptedWords; }
 
     public int getCalculatedScore(String inputWord){
         int calculatedScore = 0;
         for (char ch : inputWord.toCharArray()){
-            for (Character key : bag.keySet()) {
+            for (Character key : points.keySet()) {
                 if(key == ch){
                     calculatedScore = calculatedScore + points.get(key);
                 }
@@ -110,16 +120,28 @@ public class ScrabbleModel {
     public boolean setAllAcceptedWords(String inputWord) {
 
         for (char ch : inputWord.toCharArray()){
+
             for (Character key : bag.keySet()) {
-                if(bag.get(ch) < 0){
+
+                if(bag.containsKey(ch)){
+
+                    if(key == ch){
+                        bag.put(key, bag.get(key) - 1);
+                    }
+
+                } else {
                     setErrorMsg("Word contains letter " + ch + " that is no longer available “in bag” ");
                     return false;
                 }
-
-                if(key == ch){
-                    bag.put(key, bag.get(key) - 1);
-                }
+//                if(bag.get(ch) < 0){
+//                    setErrorMsg("Word contains letter " + ch + " that is no longer available “in bag” ");
+//                    return false;
+//                }
             }
+            if(bag.get(ch) == 0){
+                bag.remove(ch);
+            }
+
 
         }
         System.out.println(getCalculatedScore(inputWord));
@@ -152,6 +174,7 @@ public class ScrabbleModel {
                 case 'i':
                 case 'o':
                 case 'u':
+                case 'y':
                     vowelCount++;
                     break;
             }
@@ -173,11 +196,29 @@ public class ScrabbleModel {
     }
 
     public String formattedArrayList(ArrayList allAcceptedWords){
-        String formattedString = allAcceptedWords.toString()
+        return allAcceptedWords.toString()
                 .replace("[", "")  //remove the right bracket
                 .replace("]", "")  //remove the left bracket
                 .trim();
-        return formattedString;
+    }
+
+    public boolean ifGameIsOver(HashMap bag){
+        if(
+                bag.get('a').equals(0)
+                && bag.get('e').equals(0)
+                && bag.get('i').equals(0)
+                && bag.get('o').equals(0)
+                && bag.get('u').equals(0)
+                && bag.get('y').equals(0)
+        ){
+            setGameOver(true);
+            System.out.println("Game over sout 0");
+            setErrorMsg("Game Over");
+        }
+
+
+
+        return false;
     }
 
     public void process(){
@@ -185,6 +226,7 @@ public class ScrabbleModel {
         if(validateHandledWord(inputWord)){
             setInputWord(inputWord);
             setTotalPoints(getCalculatedScore(inputWord));
+            ifGameIsOver(bag);
         }
         System.out.println(getAllAcceptedWords());
         System.out.println("Bag after " + bag.entrySet());
