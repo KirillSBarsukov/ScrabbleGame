@@ -1,5 +1,9 @@
 package sample;
 
+import javafx.fxml.FXML;
+import javafx.scene.Group;
+import javafx.util.Pair;
+
 import java.util.*;
 
 public class ScrabbleModel {
@@ -9,6 +13,19 @@ public class ScrabbleModel {
     private boolean gameOver = false;
     private static int totalPoints = 0;
     private static ArrayList<String> allAcceptedWords = new ArrayList<>();
+
+    @FXML
+    static Group groupA;
+
+    static Map<Group, Pair> completeBag = new HashMap<Group, Pair>(){
+        {
+            put(groupA, new Pair("a", 12));
+        }
+    };
+
+    public static Map<Group, Pair> getCompleteBag() {
+        return completeBag;
+    }
 
     static HashMap<Character, Integer> bag = new HashMap<Character, Integer>()
     {
@@ -103,6 +120,10 @@ public class ScrabbleModel {
         this.gameOver = gameOver;
     }
 
+    public static HashMap<Character, Integer> getBag() {
+        return bag;
+    }
+
     public ArrayList<String> getAllAcceptedWords() { return allAcceptedWords; }
 
     public int getCalculatedScore(String inputWord){
@@ -131,6 +152,7 @@ public class ScrabbleModel {
                 if(clonedBag.containsKey(ch)){
                     if(key == ch){
                         clonedBag.put(key, clonedBag.get(key) - 1);
+                        break;
                     }
                     if(clonedBag.get(ch) < 0){
                         setErrorMsg("Word contains letter " + ch + " more times than you have it “in the bag” ");
@@ -160,6 +182,7 @@ public class ScrabbleModel {
 
                     if(key == ch){
                         bag.put(key, bag.get(key) - 1);
+                        break;
                     }
 
                 } else {
@@ -169,9 +192,11 @@ public class ScrabbleModel {
             }
             if(bag.get(ch) == 0){
                 bag.remove(ch);
+
+
             }
         }
-        System.out.println(getCalculatedScore(inputWord));
+        System.out.println("Tses"+getCalculatedScore(inputWord));
         return this.allAcceptedWords.add(inputWord);
 
     }
@@ -230,21 +255,16 @@ public class ScrabbleModel {
     }
 
     public boolean ifGameIsOver(HashMap bag){
-        if(
-                bag.get('a').equals(0)
-                && bag.get('e').equals(0)
-                && bag.get('i').equals(0)
-                && bag.get('o').equals(0)
-                && bag.get('u').equals(0)
-                && bag.get('y').equals(0)
+        if( !bag.containsKey('a') && !bag.containsKey('e') && !bag.containsKey('i') && !bag.containsKey('o')
+                && !bag.containsKey('u') && !bag.containsKey('y')
         ){
             setGameOver(true);
-            System.out.println("Game over sout 0");
             setErrorMsg("Game Over");
         }
 
         return false;
     }
+
 
     public void process(){
         System.out.println("Bag before " + bag.entrySet());
@@ -255,6 +275,9 @@ public class ScrabbleModel {
         }
         System.out.println(getAllAcceptedWords());
         System.out.println("Bag after " + bag.entrySet());
+
+        //How to get access
+        // System.out.println("Tests " + completeBag.get(groupA).getValue());
     }
 
 }

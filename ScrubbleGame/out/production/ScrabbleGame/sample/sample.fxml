@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -16,22 +17,26 @@
          </font>
       </Label>
       <Button fx:id="submit_button" layoutX="529.0" layoutY="424.0" mnemonicParsing="false" onAction="#submit" prefHeight="81.0" prefWidth="109.0" text="SUBMIT WORD" />
-      <TextField fx:id="scoreField" editable="false" layoutX="565.0" layoutY="21.0" prefHeight="46.0" prefWidth="74.0">
+      <TextField fx:id="scoreField" editable="false" layoutX="565.0" layoutY="21.0" prefHeight="46.0" prefWidth="74.0" promptText="0">
          <font>
             <Font size="26.0" />
          </font></TextField>
       <TextField fx:id="inputFiled" layoutX="140.0" layoutY="81.0" prefHeight="27.0" prefWidth="498.0" promptText="Type your word here" />
       <TextArea fx:id="errorMsgField" editable="false" layoutX="140.0" layoutY="424.0" prefHeight="81.0" prefWidth="376.0" promptText="Message" />
-      <Label fx:id="letterA" alignment="CENTER" layoutX="225.0" layoutY="126.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" styleClass="hidden" stylesheets="@style.css" text="A" textAlignment="CENTER">
-         <font>
-            <Font size="32.0" />
-         </font>
-      </Label>
-      <Label layoutX="289.0" layoutY="126.0" style="-fx-content-display: none;" text="1">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
+   <Group fx:id="groupA" layoutX="225.0" layoutY="126.0">
+      <children>
+            <Label fx:id="letterA" alignment="CENTER" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" styleClass="hidden" stylesheets="@style.css" text="A" textAlignment="CENTER">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+            <Label layoutX="64.0" style="-fx-content-display: none;" text="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+      </children>
+   </Group>
       <Label alignment="CENTER" layoutX="308.0" layoutY="126.0" prefHeight="46.0" prefWidth="74.0" style="-fx-border-style: solid;" text="B" textAlignment="CENTER">
          <font>
             <Font size="32.0" />

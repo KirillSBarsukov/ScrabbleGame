@@ -2,10 +2,11 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Group;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+
 
 public class ScrabbleController {
     @FXML
@@ -18,7 +19,12 @@ public class ScrabbleController {
     Button submit_button;
 
     @FXML
-    Label letterA;
+    Group groupA, groupB, groupC, groupD, groupE,
+            groupF, groupG, groupH, groupI, groupJ,
+            groupK, groupL, groupM, groupN, groupO,
+            groupP, groupQ, groupR, groupS, groupT,
+            groupU, groupV, groupW, groupX, groupY,
+            groupZ;
 
     @FXML
     private void submit(ActionEvent event){
@@ -54,7 +60,13 @@ public class ScrabbleController {
         }
         System.out.println("Typed " + typedWord);
 
+        if(!scrabbleModel.getBag().containsKey('a')){
+            groupA.setStyle("visibility: hidden");
+        }
+
+        System.out.println(scrabbleModel.getCompleteBag().get(groupA));
+//        if(scrabbleModel.getCompleteBag().containsKey('a')) {
+//            scrabbleModel.getCompleteBag().get('a').getKey().
+//        }
     }
-
-
 }
