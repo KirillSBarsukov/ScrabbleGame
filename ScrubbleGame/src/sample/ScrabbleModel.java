@@ -117,7 +117,40 @@ public class ScrabbleModel {
         return calculatedScore;
     }
 
+
+    // Before comparing word with the HashMap, I have decided to check if the word does not contain more letters than in the bag
+    // because in setAllAcceptedWords() method I am decreasing the value of found key immediately. For example,
+    // I can use letter M only twice. If i type MAMMA, i will got error message but my "Bag" will be changed. To avoid that
+    // I am checking the whole word before
+
+    public boolean isWordContainsExtraLetters(){
+        HashMap<Character, Integer> clonedBag = new HashMap<>(bag);
+        for (char ch : inputWord.toCharArray()){
+            for (Character key : clonedBag.keySet()) {
+
+                if(clonedBag.containsKey(ch)){
+                    if(key == ch){
+                        clonedBag.put(key, clonedBag.get(key) - 1);
+                    }
+                    if(clonedBag.get(ch) < 0){
+                        setErrorMsg("Word contains letter " + ch + " more times than you have it “in the bag” ");
+                        return false;
+                    }
+                } else {
+                    setErrorMsg("Word contains letter " + ch + " that is no longer available “in the bag” ");
+                    return false;
+                }
+
+            }
+        }
+        return true;
+
+    }
     public boolean setAllAcceptedWords(String inputWord) {
+
+        if(!isWordContainsExtraLetters()){
+            return false;
+        }
 
         for (char ch : inputWord.toCharArray()){
 
@@ -133,16 +166,10 @@ public class ScrabbleModel {
                     setErrorMsg("Word contains letter " + ch + " that is no longer available “in bag” ");
                     return false;
                 }
-//                if(bag.get(ch) < 0){
-//                    setErrorMsg("Word contains letter " + ch + " that is no longer available “in bag” ");
-//                    return false;
-//                }
             }
             if(bag.get(ch) == 0){
                 bag.remove(ch);
             }
-
-
         }
         System.out.println(getCalculatedScore(inputWord));
         return this.allAcceptedWords.add(inputWord);
@@ -215,8 +242,6 @@ public class ScrabbleModel {
             System.out.println("Game over sout 0");
             setErrorMsg("Game Over");
         }
-
-
 
         return false;
     }
