@@ -64,9 +64,85 @@ public class ScrabbleController {
             groupA.setStyle("visibility: hidden");
         }
 
-        System.out.println(scrabbleModel.getCompleteBag().get(groupA));
-//        if(scrabbleModel.getCompleteBag().containsKey('a')) {
-//            scrabbleModel.getCompleteBag().get('a').getKey().
-//        }
+        if(!scrabbleModel.getBag().containsKey('b')){
+            groupB.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('c')){
+            groupC.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('d')){
+            groupD.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('e')){
+            groupE.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('f')){
+            groupF.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('g')){
+            groupG.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('h')){
+            groupH.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('i')){
+            groupI.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('j')){
+            groupJ.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('k')){
+            groupK.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('l')){
+            groupL.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('m')){
+            groupM.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('n')){
+            groupN.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('o')){
+            groupO.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('p')){
+            groupP.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('q')){
+            groupQ.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('r')){
+            groupR.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('s')){
+            groupS.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('t')){
+            groupT.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('u')){
+            groupU.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('v')){
+            groupV.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('w')){
+            groupW.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('x')){
+            groupX.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('y')){
+            groupY.setStyle("visibility: hidden");
+        }
+        if(!scrabbleModel.getBag().containsKey('z')){
+            groupZ.setStyle("visibility: hidden");
+        }
+
+
+
+
+
     }
 }

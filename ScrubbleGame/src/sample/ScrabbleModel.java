@@ -255,13 +255,12 @@ public class ScrabbleModel {
     }
 
     public boolean ifGameIsOver(HashMap bag){
-        if( !bag.containsKey('a') && !bag.containsKey('e') && !bag.containsKey('i') && !bag.containsKey('o')
-                && !bag.containsKey('u') && !bag.containsKey('y')
+        if( (!bag.containsKey('a') && !bag.containsKey('e') && !bag.containsKey('i') && !bag.containsKey('o')
+                && !bag.containsKey('u') && !bag.containsKey('y')) || bag.size() == 1
         ){
             setGameOver(true);
             setErrorMsg("Game Over");
         }
-
         return false;
     }
 
